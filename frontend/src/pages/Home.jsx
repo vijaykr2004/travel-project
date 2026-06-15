@@ -10,6 +10,7 @@ useEffect(() => {
   const fetchPackages = async () => {
     try {
       const res = await getPackages();
+      console.log("API Response:", res.data);
       setPackages(res.data.packages);
     } catch (error) {
       console.log(error);
@@ -18,6 +19,7 @@ useEffect(() => {
 
   fetchPackages();
 }, []);
+
 
   return (
     
@@ -41,10 +43,10 @@ useEffect(() => {
             </button>
           </Link>
           <Link to="/inquiry">
-  <button className="bg-orange-500 hover:bg-orange-600 mx-3 text-white px-8 py-4 rounded-lg font-semibold">
-    Send Inquiry
-  </button>
-</Link>
+            <button className="bg-orange-500 hover:bg-orange-600 mx-3 text-white px-8 py-4 rounded-lg font-semibold">
+              Send Inquiry
+            </button>
+          </Link>
          
 
           
@@ -85,10 +87,10 @@ useEffect(() => {
   <h2 className="text-4xl font-bold text-center mb-10">
     Popular Packages
   </h2>
-
   <div className="grid md:grid-cols-4 gap-6">
 
-    {packages.slice(0, 4).map((pkg) => (
+    {/* {packages.slice(0, 4).map((pkg) => ( */}
+    {(packages || []).slice(0, 4).map((pkg) => (
       <div
         key={pkg._id}
         className="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transition"
@@ -127,7 +129,7 @@ useEffect(() => {
 
   </div>
 
-</section>
+     </section>
 
       <section className="bg-gray-100 py-20">
 
