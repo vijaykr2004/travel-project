@@ -1,7 +1,7 @@
 import API from "./authService";
 
 export const getPackages = () =>
-  API.get("/api/packages");
+  API.get("/packages");
 
 export const getPackageById = (id) =>
-  API.get(`/api/packages/${id}`);
+  API.get(`/packages/${id}`);
